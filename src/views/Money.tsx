@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from "components/Layout";
 import styled from "styled-components";
 
-const TagsSection = styled.div`
+const TagsSection = styled.section`
   background: rgb(255,255,255);
   padding: 12px 16px;
   > ol {
@@ -25,13 +25,51 @@ const TagsSection = styled.div`
     outline: none;
   }
 `
-const NoteSection = styled.div`
-
+const NoteSection = styled.section`
+  padding: 10px 16px;
+  font-size: 14px;
+  > label {
+    display: flex;
+    align-items: center;
+    > span {
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+    > input {
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      background: none;
+      height: 48px;
+    }
+  }
 `
-const CategorySection = styled.div`
-
+const CategorySection = styled.section`
+  font-size: 24px;
+  > ul {
+    background: #c4c4c4;
+    display: flex;
+    align-items: center;
+    > li {
+      padding: 16px 0;
+      width: 50%;
+      text-align: center;
+      position: relative;
+      &.selected::after {
+        content: '';
+        display: block;
+        height: 3px;
+        background: #333;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
 `
-const NumberPadSection = styled.div`
+const NumberPadSection = styled.section`
 
 `
 
@@ -50,12 +88,12 @@ function Money() {
       <NoteSection>
         <label htmlFor="">
           <span>备注</span>
-          <input type="text"/>
+          <input type="text" placeholder="在这里添加备注"/>
         </label>
       </NoteSection>
       <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className="selected">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
