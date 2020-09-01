@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Icon from "components/Icon";
 
 const NavWrapper = styled.nav`
+  background: #fff;
   box-shadow: 0 0 4px rgba(0,0,0, .3);
   > ul {
     display: flex;
