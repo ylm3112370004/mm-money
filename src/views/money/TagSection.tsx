@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useTags } from 'libs/useTags';
 
 const Wrapper = styled.section`
   flex-grow: 1;
@@ -37,7 +38,7 @@ type Props = {
   onChange: (value: string[]) => void;
 }
 const TagsSection: React.FC<Props> = (props) => {
-  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行'])
+  const { tags, setTags } = useTags()
   const selectedTags = props.value;
   // const [selectedTags, setSelectedTags] = useState<string[]>(props.selected)
   const onAddTag = () => {

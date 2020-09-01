@@ -1,10 +1,15 @@
 import React from 'react';
 import Layout from "components/Layout";
+import { useTags } from 'libs/useTags';
 
 function Tags() {
+  const { tags, setTags } = useTags()
+  console.log(tags)
   return (
     <Layout>
-      <h2>Tags</h2>
+      <ul>
+        {tags.map(tag => <li key={tag}>{tag}</li>)}
+      </ul>
     </Layout>
   );
 }
