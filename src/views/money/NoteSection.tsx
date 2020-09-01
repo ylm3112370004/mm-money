@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const NoteSection = styled.section`
+const Wrapper = styled.section`
   padding: 10px 16px;
   font-size: 14px;
   > label {
@@ -20,6 +21,18 @@ const NoteSection = styled.section`
     }
   }
 `
+
+const NoteSection:React.FC = () => {
+  const [note, setNote] = useState<string>('')
+  return (
+    <Wrapper>
+      <label htmlFor="">
+          <span>备注</span>
+          <input value={note} onChange={(e) => setNote(e.target.value)} type="text" placeholder="在这里添加备注" />
+        </label>
+    </Wrapper>
+  )
+}
 
 export {
   NoteSection
