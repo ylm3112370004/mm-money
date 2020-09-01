@@ -21,14 +21,17 @@ const Wrapper = styled.section`
     }
   }
 `
-
-const NoteSection:React.FC = () => {
-  const [note, setNote] = useState<string>('')
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+}
+const NoteSection:React.FC<Props> = (props) => {
+  // const [note, setNote] = useState<string>('')
+  const note = props.value
   const refInput = useRef<HTMLInputElement>(null)
   const onBlur = () => {
     if(refInput.current !== null) {
-      console.log(refInput.current.value)
-      setNote(refInput.current.value)
+      props.onChange(refInput.current.value)
     }
   }
   return (

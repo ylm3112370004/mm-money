@@ -25,20 +25,23 @@ font-size: 24px;
   }
 }
 `
-
-const CategorySection: React.FC = () => {
-  const categoryMap = {'+': '支出', '-': '收入'}
-  type X = typeof categoryMap
-  type Y = keyof X
+const categoryMap = {'+': '支出', '-': '收入'}
+type X = typeof categoryMap
+type Y = keyof X
+type Props = {
+  value: string;
+  onChange: (value: Y) => void;
+}
+const CategorySection: React.FC<Props> = (props) => {
   const [categoryList] = useState<Y[]>(['+', '-'])
-  const [category, setCategory] = useState<string>('-') // + 收入 - 支出
-  
+  // const [category, setCategory] = useState<string>('-') // + 收入 - 支出
+  const category = props.value
   return <Wrapper>
     <ul>
     {
       categoryList.map(c => 
       <li key={c} className={category === c? "selected": ""}
-      onClick={() => setCategory(c)}>{categoryMap[c]}</li>)
+      onClick={() => props.onChange(c)}>{categoryMap[c]}</li>)
     }
     </ul>
   </Wrapper>
