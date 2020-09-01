@@ -76,7 +76,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "serve": "serve -s build -l 4000"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -149,5 +150,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "svg-sprite-loader": "^5.0.0",
+    "svgo-loader": "^2.2.1"
   }
 }
