@@ -353,7 +353,7 @@ module.exports = function(webpackEnv) {
               test: /\.svg$/,
               use: [
                 { loader: 'svg-sprite-loader'},
-                'svgo-loader'
+                { loader: 'svgo-loader'},
               ]
             },
             // "url" loader works like "file" loader except that it embeds assets
