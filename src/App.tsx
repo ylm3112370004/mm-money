@@ -5,42 +5,26 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import styled from "styled-components";
-import Nav from "components/Nav";
-
-const Wrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-const Main = styled.div`
-  flex-grow: 1;
-  overflow: auto;
-`
+import Layout from "components/Layout";
 
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
-          <Switch>
-            <Route exact path="/tags">
-              <Tags />
-            </Route>
-            <Route path="/money">
-              <Money />
-            </Route>
-            <Route path="/statistic">
-              <Statistic />
-            </Route>
-            <Redirect exact from="/" to="tags" />
-            <Route path="*">
-              <NoMatch />
-            </Route>
-          </Switch>
-        </Main>
-        <Nav/>
-      </Wrapper>
+      <Switch>
+        <Route exact path="/tags">
+          <Tags />
+        </Route>
+        <Route path="/money">
+          <Money />
+        </Route>
+        <Route path="/statistic">
+          <Statistic />
+        </Route>
+        <Redirect exact from="/" to="tags" />
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
     </Router>
   );
 }
@@ -52,25 +36,25 @@ function NoMatch() {
 }
 function Tags() {
   return (
-    <div>
+    <Layout>
       <h2>Tags</h2>
-    </div>
+    </Layout>
   );
 }
 
 function Money() {
   return (
-    <div>
+    <Layout>
       <h2>Money</h2>
-    </div>
+    </Layout>
   );
 }
 
 function Statistic() {
   return (
-    <div>
+    <Layout>
       <h2>Statistic</h2>
-    </div>
+    </Layout>
   );
 }
 
