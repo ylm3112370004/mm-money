@@ -9,7 +9,7 @@ const NavWrapper = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    > li {
+    > li a {
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -22,16 +22,13 @@ function Nav() {
     <NavWrapper>
           <ul>
             <li>
-              <Icon name="tags"/>
-              <Link to="/tags">标签</Link>
+              <Link to="/tags"><Icon name="tags"/>标签</Link>
             </li>
             <li>
-              <Icon name="money"/>
-              <Link to="/money">记账</Link>
+              <Link to="/money"><Icon name="money"/>记账</Link>
             </li>
             <li>
-              <Icon name="charts"/>
-              <Link to="/statistic">统计</Link>
+              <Link to="/statistic"><Icon name="charts"/>统计</Link>
             </li>
           </ul>
         </NavWrapper>
