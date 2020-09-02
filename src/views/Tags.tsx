@@ -26,6 +26,7 @@ const TagList = styled.ol`
 `
 
 function Tags() {
+  console.log('ylm')
   const { tags, setTags } = useTags()
   return (
     <Layout>

@@ -27,7 +27,8 @@ const InputWrapper = styled.div`
   background: #fff;
 `
 const Tag = () => {
-  const { findTag, updateTag } = useTags()
+  console.log('duwei ')
+  const { findTag, updateTag, deleteTag } = useTags()
   const { id: idString } = useParams<Params>();
   const tag = findTag(parseInt(idString))
 
@@ -39,21 +40,26 @@ const Tag = () => {
         <span></span>
       </TopBar>
       <Space></Space>
-      <InputWrapper>
-        <Input label="标签名"
-          type="text"
-          value={tag.name}
-          onChange={e => {
-            updateTag(tag.id, {name: e.target.value})
-          }}
-          placeholder="在这里添加备注" />
-        </InputWrapper>
-      <Center>
-        <Space></Space>
-        <Space></Space>
-        <Space></Space>
-        <Button>删除标签</Button>
-      </Center>
+      {tag? 
+      <>
+        <InputWrapper>
+          <Input label="标签名"
+            type="text"
+            value={tag.name}
+            onChange={e => {
+              updateTag(tag.id, {name: e.target.value})
+            }}
+            placeholder="在这里添加备注" />
+          </InputWrapper>
+        <Center>
+          <Space></Space>
+          <Space></Space>
+          <Space></Space>
+          <Button onClick={() => {
+            deleteTag(tag.id)
+          }}>删除标签</Button>
+        </Center>
+      </>: <Center>tag不存在</Center> }
     </Layout>
   )
 }
