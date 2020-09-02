@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createId } from 'lib/createId';
 
 // const defaultTags = [
@@ -9,7 +9,21 @@ import { createId } from 'lib/createId';
 
 const useTags = () => {
   const [tags, setTags] = useState<{id: number; name: string}[]>([])
-
+  useEffect(() => { // componentDidMount
+    let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]')
+    if(localTags.length === 0) {
+      localTags = [
+        {id: createId(), name: '衣'},
+        {id: createId(), name: '食'}, 
+        {id: createId(), name: '住'}, 
+        {id: createId(), name: '行'}
+      ]
+    }
+    setTags(localTags)
+  }, [])
+  useEffect(() => {
+    window.localStorage.setItem('tags', JSON.stringify(tags))
+  }, [tags]) // 不可变数据，新的数据
   const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
   
   const findTagIndex = (id: number) => {
@@ -31,7 +45,7 @@ const useTags = () => {
   
   const addTag = () => {
     const tagName = window.prompt('新标签的名字为')
-    if (tagName !== null) {
+    if (tagName !== null && tagName !== "") {
       setTags([...tags, {id: createId(), name: tagName}])
     }
   }

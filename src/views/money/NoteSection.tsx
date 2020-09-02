@@ -10,7 +10,7 @@ const NoteSection:React.FC<Props> = (props) => {
     props.onChange(e.target.value)
   }
   return (
-    <Input label="标签" 
+    <Input label="备注" 
             value={props.value}
             onChange={handleChange} 
             type="text" 

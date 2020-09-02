@@ -27,7 +27,6 @@ const InputWrapper = styled.div`
   background: #fff;
 `
 const Tag = () => {
-  console.log('duwei ')
   const { findTag, updateTag, deleteTag } = useTags()
   const { id: idString } = useParams<Params>();
   const tag = findTag(parseInt(idString))
