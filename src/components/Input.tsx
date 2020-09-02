@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
-  padding: 10px 16px;
+  padding: 0px 16px;
   font-size: 14px;
   > label {
     display: flex;
