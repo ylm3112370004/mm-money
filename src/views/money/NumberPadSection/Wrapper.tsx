@@ -22,7 +22,7 @@ const Wrapper = styled.section`
       float: right;
     }
     &.zero {
-      width: 50%;
+      width: 75%;
     }
     /* &.dot {
       float: right;
@@ -45,14 +45,14 @@ const Wrapper = styled.section`
       background:#C1C1C1;
     }
     &:nth-child(8),
-    &:nth-child(11),
-    &:nth-child(13) {
+    &:nth-child(11){
       background:#B8B8B8;
     }
     &:nth-child(12) {
       background:#9A9A9A;
     }
-    &:nth-child(14) {
+    &:nth-child(14),
+    &:nth-child(13)  {
       background:#A9A9A9;
     }
   }
