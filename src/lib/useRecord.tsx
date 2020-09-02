@@ -20,9 +20,17 @@ export const useRecords = () => {
   useEffect(() => {
     window.localStorage.setItem('records', JSON.stringify(records))
   }, [records])
-  const addRecord = (record: Item) => {
-    
-    setRecords([...records, {...record, createAt: new Date().toISOString()}])
+  const addRecord = (item: Item) => {
+    if(item.amount <= 0) { 
+      alert('请输入金额')
+      return false 
+    }
+    if(item.tagIds.length === 0) {
+      alert('请选择标签')
+      return false
+    }
+    setRecords([...records, {...item, createAt: new Date().toISOString()}])
+    return true
   }
 
 

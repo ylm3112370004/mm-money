@@ -30,9 +30,11 @@ function Money() {
     })
   }
   const handleOk = () => {
-    addRecord(selected)
-    alert('保存成功')
-    setSelected(defaultFormData)
+    const success = addRecord(selected)
+    if(success) {
+      alert('保存成功')
+      setSelected(defaultFormData)
+    }
   }
   return (
     <MyLayout>
