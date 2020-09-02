@@ -4,6 +4,7 @@ import { useTags } from 'lib/useTags';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
 import { Link } from 'react-router-dom';
+import { Button } from 'components/Button';
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -31,15 +32,6 @@ const Center = styled.div`
   justify-content: center;
   align-items: center;
 `
-const Button = styled.button`
-  font-size: 18px;
-  border: none;
-  outline: none;
-  padding: 8px 12px;
-  background: #767676;
-  color: #fff;
-  border-radius: 4px;
-`
 
 function Tags() {
   const { tags, setTags } = useTags()
@@ -47,7 +39,7 @@ function Tags() {
     <Layout>
       <TagList>
         {tags.map(tag => <li key={tag['id']}><Link to={`/tags/${tag['id']}`}>
-            <span className="one-line">{tag['name']}</span><Icon name="right"/>
+  <span className="one-line">{tag['id']}{tag['name']}</span><Icon name="right"/>
           </Link>
           </li>)}
       </TagList>
