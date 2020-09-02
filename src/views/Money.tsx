@@ -11,7 +11,6 @@ const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `
-
 const Wrapper = styled.div`
   background: #c4c4c4;
 `
@@ -42,7 +41,7 @@ function Money() {
     }
   }
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
       <TagsSection value={selected.tagIds} onChange={tagIds => onChange({tagIds})}></TagsSection>
       <NoteSection value={selected.note} onChange={note => onChange({note})}></NoteSection>
       <Wrapper><CategorySection value={selected.category} onChange={category => onChange({category})}></CategorySection></Wrapper>
