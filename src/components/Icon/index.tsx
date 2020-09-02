@@ -7,13 +7,14 @@ function importAll (r: __WebpackModuleApi.RequireContext) {
 importAll(require.context('./icons/', true, /\.svg$/));
 
 type Props = {
-  name: string
-}
+  name?: string
+} & React.SVGAttributes<SVGElement>
 
 const Icon = (props: Props) => {
+  const { name, children, ...rest } = props
   return (
-    <svg className="icon">
-      <use xlinkHref={'#' + props.name} />
+    <svg className="icon" {...rest}>
+      {props.name && <use xlinkHref={'#' + props.name} />}
     </svg>
   )
 }

@@ -27,12 +27,13 @@ const TagList = styled.ol`
 
 function Tags() {
   console.log('ylm')
-  const { tags, setTags } = useTags()
+  const { tags, addTag } = useTags()
   return (
     <Layout>
       <TagList>
-        {tags.map(tag => <li key={tag['id']}><Link to={`/tags/${tag['id']}`}>
-  <span className="one-line">{tag['id']}{tag['name']}</span><Icon name="right"/>
+        {tags.map(tag => <li key={tag['id']}>
+          <Link to={`/tags/${tag['id']}`}>
+            <span className="one-line">{tag['id']}|{tag['name']}</span><Icon name="right"/>
           </Link>
           </li>)}
       </TagList>
@@ -40,7 +41,7 @@ function Tags() {
         <Space></Space>
         <Space></Space>
         <Space></Space>
-        <Button>新增标签</Button>
+        <Button onClick={addTag}>新增标签</Button>
       </Center>
     </Layout>
   );
