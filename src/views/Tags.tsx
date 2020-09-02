@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from "components/Layout";
-import { useTags } from 'libs/useTags';
+import { useTags } from 'lib/useTags';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
 import { Link } from 'react-router-dom';
@@ -43,7 +43,6 @@ const Button = styled.button`
 
 function Tags() {
   const { tags, setTags } = useTags()
-  console.log(tags)
   return (
     <Layout>
       <TagList>

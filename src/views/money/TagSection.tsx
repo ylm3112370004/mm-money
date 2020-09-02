@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useTags } from 'libs/useTags';
+import { useTags } from 'lib/useTags';
 
 const Wrapper = styled.section`
   flex-grow: 1;
