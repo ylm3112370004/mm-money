@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
 font-size: 24px;
 > ul {
-  background: #c4c4c4;
   display: flex;
   align-items: center;
   > li {
@@ -25,7 +24,7 @@ font-size: 24px;
   }
 }
 `
-const categoryMap = {'+': '支出', '-': '收入'}
+const categoryMap = {'-': '支出', '+': '收入'}
 type X = typeof categoryMap
 type Y = keyof X
 type Props = {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-type RecordItem = Item & {
+export type RecordItem = Item & {
   createAt: string;
 }
 
